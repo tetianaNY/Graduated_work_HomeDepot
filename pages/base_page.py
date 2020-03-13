@@ -28,6 +28,9 @@ class Page:
     def find_element(self, *locator):
         return self.driver.find_element(*locator)
 
+    def find_elements(self, *locator):
+        return self.driver.find_elements(*locator)
+
     def hover_over_element(self, *locator):
         elem = self.find_element(*locator)
         self.actions.move_to_element(elem).perform()
