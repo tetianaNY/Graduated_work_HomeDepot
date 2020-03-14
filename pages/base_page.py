@@ -59,3 +59,7 @@ class Page:
         actual_text = self.driver.find_element(*locator).text
         assert expected_text == actual_text, f'Expected text {expected_text}, but got {actual_text}'
 
+    def count_suggestion_items(self, text: str, *locator):
+        total = str(len(self.driver.find_elements(*locator))-1)
+        print(f'Total suggestions for "{text}" is: {total}.')
+
