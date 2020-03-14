@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 from pages.base_page import Page
 from time import sleep
 
+
 class MainPage(Page):
     SEARCH_BOX_LOCATOR = (By.CSS_SELECTOR, '#headerSearch')
     SEARCH_BUTTON_LOCATOR = (By.CSS_SELECTOR, '#headerSearchButton')
@@ -42,14 +43,3 @@ class MainPage(Page):
     def counting_result(self, text: str):
         self.wait_for_element_appear(self.SUGGESTIONS_CONTAINER)
         self.count_suggestion_items(text, *self.SUGGESTIONS_LOCATOR)
-
-
-
-
-
-
-
-
-
-
-
