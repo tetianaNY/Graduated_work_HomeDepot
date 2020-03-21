@@ -48,4 +48,4 @@ class ShoppingCart(Page):
         self.wait_for_element_appear(self.CART_QUANTITY)
         self.input(quantity, *self.CART_QUANTITY)
         self.click(*self.ANY_PLACE_CLICK_CART)
-        sleep(2)
+        sleep(3)
