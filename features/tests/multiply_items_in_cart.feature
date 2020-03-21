@@ -10,5 +10,5 @@ Feature: HomeDepot project
     And Return to product search page
     And On search results page choose another product and click it
     And Add product to shopping cart
-    Then Expected products would be in cart
-    And Close all pop-ups
+    Then Close all pop-ups
+    And Expected products would be in cart
