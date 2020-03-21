@@ -32,7 +32,6 @@ class ShoppingCart(Page):
         self.wait_for_element_appear(self.EXPECTED_ITEM_IN_THE_CART)
         self.verify_text_in(text, *self.EXPECTED_ITEM_IN_THE_CART)
 
-
     def close_iframe(self):
         self.wait_for_element_appear(self.IFRAME_LOCATOR)
         frame = self.find_element(*self.IFRAME_LOCATOR)
@@ -49,3 +48,4 @@ class ShoppingCart(Page):
         self.wait_for_element_appear(self.CART_QUANTITY)
         self.input(quantity, *self.CART_QUANTITY)
         self.click(*self.ANY_PLACE_CLICK_CART)
+        sleep(2)
