@@ -6,6 +6,6 @@ Feature: HomeDepot project
     When Insert circular saw in search field
     And On search results page choose something and click it
     And Add product to shopping cart
-    Then Expected product would be in cart
-#  Селениум не видит локаторы на POP-UP
-    And Close all pop-ups
+# Поменяла местами, закрыть и проверить, тк а iframe только по текущему добавлению показывается, а не сколько в корзине
+    Then Close all pop-ups
+    And Expected product would be in cart
