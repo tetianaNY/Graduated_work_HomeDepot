@@ -13,14 +13,13 @@ def add_one_item_to_cart(context):
     context.app.shopping_cart.add_to_cart_for_delivery()
 
 
+@then('Close all pop-ups')
+def popup_close(context):
+    context.app.shopping_cart.close_iframe()
+
+
 @then('Expected product would be in cart')
 def result_verification(context):
     context.app.shopping_cart.item_in_the_cart_result('1')
 
 
-# Не могу понять почему Селениум не видит popup, ни один локатор, что за хитрость?
-
-@then('Close all pop-ups')
-def popup_close(context):
-    context.app.shopping_cart.twice_browser_back()
-    # context.app.shopping_cart.popup_with_item_in_the_cart()
