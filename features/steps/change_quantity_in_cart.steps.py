@@ -15,4 +15,4 @@ def change_quantity(context):
 @then('Expected items in cart will be 2')
 def result_verification2(context):
     context.app.shopping_cart.item_in_the_cart_result('2')
-    sleep(2)
+
