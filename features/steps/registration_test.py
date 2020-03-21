@@ -15,10 +15,10 @@ def click_register(context):
 # Prior to run the test change e-mail (just add 1 to the name) and phone number (change 1 digit)
 @when('Fill all fields with fake data')
 def registration_form(context):
-    context.app.registration_page.registration_form_email('seniorus_pomidorus655@korolevstvo.nyc')
+    context.app.registration_page.registration_form_email('seniorus_pomidorus852@korolevstvo.nyc')
     context.app.registration_page.registration_form_password('Zxcvb!234')
     context.app.registration_page.registration_form_zipcode('07093')
-    context.app.registration_page.registration_form_phone('2015636565')
+    context.app.registration_page.registration_form_phone('2015636952')
     context.app.registration_page.phone_checkbox()
     # context.app.results_page.ispro_checkbox()
 
