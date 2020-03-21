@@ -20,7 +20,7 @@ class ResultsPage(Page):
 
     def review_button_check(self):
         self.wait_for_element_appear(self.REVIEW_BUTTON)
-        self.verify_text_in('Write a review', *self.REVIEW_BUTTON)
+        self.verify_text_in('Write a Review', *self.REVIEW_BUTTON)
 
     def second_page_first_search_result_open(self):
         self.wait_for_element_click(self.SECOND_PAGE_SEARCH_RESULT_LINK)
