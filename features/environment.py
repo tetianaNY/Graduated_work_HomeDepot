@@ -8,8 +8,8 @@ def browser_init(context):
     :param context: Behave context
     """
     context.driver = webdriver.Chrome()
-    # context.browser = webdriver.Safari()
-    # context.browser = webdriver.Firefox()
+    # context.driver = webdriver.Safari()
+    # context.driver = webdriver.Firefox()
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(4)
