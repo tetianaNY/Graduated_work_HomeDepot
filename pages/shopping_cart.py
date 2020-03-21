@@ -8,12 +8,14 @@ class ShoppingCart(Page):
     ADD_TO_CART_FOR_DELIVERY = (By.CSS_SELECTOR, 'div.buybelt__online-wrapper span.bttn__content')
     POPUP_ROOT = (By.CSS_SELECTOR, '#root')
     EXPECTED_ITEM_IN_THE_CART = (By.CSS_SELECTOR, '#headerCart .MyCart__itemCount')
+    IFRAME_EXPECTED_ITEM_IN_THE_CART = (By.CSS_SELECTOR, '.thd-overlay__header .u__husky')
     IFRAME_CLICKABLE_CART_ITEM = (By.CSS_SELECTOR, '[data-automation-id="viewCartLink"]')
     IFRAME_WITH_ITEM_IN_CART = (By.CSS_SELECTOR, '[data-automation-id="closeAddToCartOverlay"]')
     BOTTOM_POPUP = (By.ID, 'LPMcloseButton')
     IFRAME_LOCATOR = (By.CSS_SELECTOR, 'iframe.thd-overlay-frame')
     CART_QUANTITY = (By.CSS_SELECTOR, '[data-automation-id="itemQuantityBoxQuantityInput"]')
     ANY_PLACE_CLICK_CART = (By.CSS_SELECTOR, '[data-automation-id="itemTotalPrice"]')
+    IFRAME_WITH_ITEM_IN_ART = (By.CSS_SELECTOR, '.thd-overlay__header .thd-overlay__close')
 
     def empty_cart_result(self, text: str):
         self.wait_for_element_appear(self.EMPTY_CART_RESULT)
@@ -27,17 +29,19 @@ class ShoppingCart(Page):
         self.wait_for_element_appear(self.IFRAME_LOCATOR)
 
     def item_in_the_cart_result(self, text: str):
-        sleep(6)
-        # frame = self.find_element(self.IFRAME_LOCATOR)
-        # self.driver.switch_to_frame(frame)
-        # self.click(*self.IFRAME_WITH_ITEM_IN_ART)
-        # print(self.driver.window_handles)
-        # self.wait_for_element_click(self.IFRAME_WITH_ITEM_IN_CART)
-        # self.wait_for_element_appear(self.IFRAME_WITH_ITEM_IN_CART)
+        self.wait_for_element_appear(self.EXPECTED_ITEM_IN_THE_CART)
         self.verify_text_in(text, *self.EXPECTED_ITEM_IN_THE_CART)
 
+
+    def close_iframe(self):
+        self.wait_for_element_appear(self.IFRAME_LOCATOR)
+        frame = self.find_element(*self.IFRAME_LOCATOR)
+        self.driver.switch_to_frame(frame)
+        self.wait_for_element_appear(self.IFRAME_WITH_ITEM_IN_ART)
+        self.click(*self.IFRAME_WITH_ITEM_IN_ART)
+        self.driver.switch_to_default_content()
+
     def twice_browser_back(self):
-        sleep(6)
         self.back()
         self.back()
 
