@@ -45,7 +45,7 @@ class Page:
         self.driver.wait.until(EC.element_to_be_clickable(*locator))
 
     def wait_for_element_located(self, *locator):
-        self.driver.wait.until(EC.visibility_of_all_elements_located(locator))
+        self.driver.wait.until(EC.visibility_of_all_elements_located(*locator))
 
     def wait_until_alert_is_present(self):
         return self.driver.wait.until(EC.alert_is_present())
